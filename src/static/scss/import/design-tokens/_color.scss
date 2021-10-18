@@ -1,0 +1,10 @@
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--fg: #e3e4e8;
+		--shade1: #002848;
+		--shade2: #1d405e;
+		--shade3: #007bff;
+		--shade4: #46AAFB;
+	}
+}

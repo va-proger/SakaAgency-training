@@ -1,0 +1,175 @@
+mixin icon(name,mod)
+  - mod = mod || ''
+  svg(loading="lazy" class="icon icon-" + name + ' ' + mod)
+    use(xlink:href="/img/svg/sprite.svg#" + name)
+
+mixin picture(path, name, type)
+  picture
+    each val in type
+      source(srcset=path + "/" + name + "." + val type="img/" + val)
+    img(loading="lazy" src=path + "/" + name + ".png" alt=name)
+
+//- +picture('http://herrkessler.de/codepen', 'beer', ['jpg','webp'])
+mixin list( items )
+  each item in items
+    li
+      - if(item.href)
+        a(href=item.href)=item.text
+
+      - if(!item.href)
+        =item.text
+
+  //- +list( [ {href: 'index.html', text: 'Home'}, {href: 'about.html', text: 'About'}, {href: 'contacts.html', text: 'Contacts'} ] )
+mixin offers(items)
+  each item in items
+    .numbers__item
+      .numbers__wrapper
+        .numbers__left
+          span=item.num
+        .numbers__right
+          span=item.text
+
+//- Галлерея
+mixin galleryItems(...galleryItems)
+  each galleryItem, index in galleryItems
+    div.swiper-wrapper(id=galleryItem.id)
+      - if(galleryItem.images !== undefined)
+        each val, index in galleryItem.images
+          div(class="slide swiper-slide slide-"+index)
+            - if(galleryItem.type == 'png')
+              img(loading="lazy" src=`img/${val}.png`)
+            - if(galleryItem.type == 'jpg')
+              img(loading="lazy" src=`img/${val}.jpg`)
+            - if(galleryItem.type == 'svg')
+              img(loading="lazy" src=`img/${val}.svg`)
+      - if(galleryItem.box !== undefined)
+        each val, index in galleryItem.box
+          div(class="slide swiper-slide slide-"+index)
+            .reviews__box
+              .box-head
+                h3.box-name
+                  =val.name
+                  //- =val.name
+                p.box-date
+                  | Дата
+                p
+                  =val.company
+              .box-body
+                p.box_desk
+                  =val.text
+              .box-footer.rating.rating_set
+                .rating__body
+                  .rating__active
+                  .rating__items
+                    input(type="radio" class="rating__item" name="rating" value="1")
+                    input(type="radio" class="rating__item" name="rating" value="2")
+                    input(type="radio" class="rating__item" name="rating" value="3")
+                    input(type="radio" class="rating__item" name="rating" value="4")
+                    input(type="radio" class="rating__item" name="rating" value="5")
+                  .box-rating
+                    span
+                      | Оценка
+                    span.rating__value
+                      =val.rating
+
+mixin btnBigLink(href="#link", value= "Кнопка", another_class = "ui_another", ...items)
+  a(href=href class="btn "+another_class)
+    =value
+  each item in items
+    =item
+
+//- миксин для вывода преимуществ
+
+mixin advatagesBlock(...advatages)
+  each advatage in advatages
+    li(class="advatages__" + advatage.image)
+      span(class="advatages__" + advatage.image)
+        span(class="icon icon-"+ advatage.image + " icon__advatages.image", title=advatage.title)
+      span
+        h3=advatage.title
+        p=advatage.text
+
+//- миксин секции шагов и формы
+
+mixin step(...steps)
+    each step in steps
+        li.step__box 
+            .step__left
+                - if(step.image !== undefined) 
+                    img(src=step.image)
+                - else
+                    span.icon-circle
+                    //- +icon('checking','step__icon')
+            .step__right
+                - if(step.text !== undefined) 
+                    =step.text
+                - else
+                    p Нет текста
+
+//class - класс image - имя между типом и расположением(папка img, тип png) text текст в кнопке
+mixin bannersMain(...bannersMain)
+  each banners in bannersMain
+    section(class="__animation __end banner__"+banners.class style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(97, 72, 72, 0.5)), url(img/" + banners.image +".jpg);")
+      .container
+        div(class="banner__"+banners.class+"__box")
+          h2(class="banner__"+banners.class+"__title")
+            =banners.title
+          a(href="#modal-"+banners.id class="ui__popup_link ui__btn_big banner__"+banners.class+"__btn" )
+            =banners.text
+
+mixin rate(...rateArr)
+    each rateItem in rateArr
+        div(class=`rate__item` id=rateItem.id)
+          h2.rate__item_title
+            =rateItem.title
+          p.rate__item_desk
+            =rateItem.desk
+          .rate__item_price 
+            span От
+                span 
+                  =rateItem.price
+                span
+                  =rateItem.type
+          a(class="rate__item_link ui__btn_big ui__popup_link" href=`#${rateItem.id}` date-modal-link=`#${rateItem.id}`) Заказать
+
+
+//-  +form("post", "", [
+//-         {
+//-             label: 'Your Full Name',
+//-             name: 'name',
+//-             type: 'text',
+//-             placeholder: 'John Doe',
+//-             required: true,
+//-             autofocus: true
+//-         },
+//-         {
+//-             label: 'Your Email',
+//-             name: 'email', 
+//-             type: 'email',
+//-             placeholder: 'john@doe.com',
+//-             required: true
+//-         },
+//-         {
+//-             label: 'I agree with the Terms & Conditions',
+//-             type: 'checkbox',
+//-             required: true
+//-         }
+//-         ], "Go!")
+
+mixin form(method, action, inputs, submitLabel)
+  form(method=method action=action)
+    if inputs
+      each input in inputs
+          case input.type
+            when 'textarea'
+              label #{input.label}
+                textarea(placeholder=input.placeholder required=input.required name=input.name id=input.id class=input.class maxlength=input.maxlength autofocus=input.autofocus autocomplete = input.autocomplete)
+            when 'checkbox'
+            when 'radio'
+              label
+                input(type=input.type name=input.name id=input.id class=input.class required=input.required)
+                | #{" " + input.label}
+            default
+              label #{input.label}
+                input(type=input.type min=input.min max=input.max multiple=input.multiple pattern=input.pattern step=input.step height=input.height width=input.width placeholder=input.placeholder required=input.required name=input.name id=input.id class=input.class maxlength=input.maxlength autofocus=input.autofocus autocomplete = input.autocomplete)
+    input(type="submit" value=submitLabel)

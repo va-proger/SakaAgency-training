@@ -1,0 +1,54 @@
+h1 {
+    font-size: 2.25rem;
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.625rem;
+}
+
+h3 {}
+
+h4 {}
+
+h5 {}
+
+h6 {}
+
+li {
+    a {
+        text-decoration: none;
+    }
+}
+
+p {
+    .longgreed {}
+    .smallgreed {}
+}
+.page{
+    &__heading{
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: var(--white);
+        width: 100%;
+        margin-bottom: 25px;
+        // display: flex;
+        align-items: center;
+        
+        justify-content: flex-start;
+        h1{
+            font-size: 3rem;
+            padding: 25px 0;
+            display: flex;
+            text-align: left;
+            width: 100%;
+        }
+    }
+}
+.ui{
+    &__heading{
+       font-size: 2rem;
+    }
+}
+    

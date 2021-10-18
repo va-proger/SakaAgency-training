@@ -1,0 +1,80 @@
+.header {
+  &__wrapper {
+    @include flex-center-vert();
+    justify-content: space-between;
+    min-height: 3rem;
+  }
+
+  &__wrapper.bottom {
+    padding: 15px 0;
+    flex-wrap: wrap;
+
+    a{
+      @include font-source-sans(1rem, var(--dark), normal, 120%);
+      text-decoration: none;
+    }
+  }
+  
+  &__left {
+    ul {
+      @include flex-center-vert();
+      flex-wrap: wrap;
+
+      li {
+        margin-right: 14px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        a {
+          padding: 10px 0;
+          text-decoration: none;
+          @include font-source-sans(1rem, var(--dark), 700, 1);
+        }
+      }
+    }
+  }
+  &__top{
+    ul{
+      li{
+        a {
+          @include font-source-sans(1rem, var(--white), normal, 120%);
+          text-decoration: none;
+        }
+      }
+    }
+    
+    
+  }
+  &__right {
+    @include font-source-sans(1rem, var(--white), normal, 120%);
+    .call{
+      &__box{
+        padding: 10px 0;
+      }
+    }
+  }
+}
+@include desktop {
+}
+
+.timing {
+  &__box {
+    @include flex-center-vert();
+  }
+
+  &__left {
+    margin-right: 14px;
+
+    @include flex-center-vert();
+    .timing__icon {
+      font-size: 2rem;
+    }
+  }
+
+  &__right {
+    white-space: nowrap;
+  }
+}
+@import "../elements/action";

@@ -1,0 +1,46 @@
+.header{
+    display: flex;
+    align-items: center;
+    min-height: 76px;
+    &__wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__logo{
+        a{
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.875rem;
+        }
+    }
+    &__navigation{
+        display: flex;
+        align-items: center;
+        li{
+            &:not(:last-child){
+               margin-right: 2.5rem; 
+            }
+            a{
+                color: var(--white);
+            }
+        }
+    }
+    &__action{
+        &--btn{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #fff;
+            min-height:  53px;
+            min-width: 157px;
+            background-color: #4080BF;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            line-height: 1.6875rem;
+        }
+    }
+}

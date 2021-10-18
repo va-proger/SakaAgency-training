@@ -1,0 +1,71 @@
+*,
+*::after,
+*::before,
+:root,
+body,
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+*{
+  border: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+html {
+  position: relative;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  font-size: 100%;
+
+}
+body {
+  overflow-x: hidden;
+  font-size: 1rem;
+  font-family: "Poppins", var(--font-family-sans-serif);
+  background-color: var(--bg-color-main);
+  color: var(--white);
+}
+img,
+svg {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+input {
+  
+}
+textarea {
+  
+}
+li {
+  @include rul;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+}
+footer {
+  margin-top: auto;
+}
+.hide {
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  @include transit(all, 0.2s, ease-in-out);
+}
+.__lock {
+  overflow: hidden;
+  // height: 100vh;
+}
+@import "../elements/container";
+@import "../elements/icons";
+@import "../elements/button";
