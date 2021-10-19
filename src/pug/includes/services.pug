@@ -1,0 +1,27 @@
+- 
+    let servArray = [
+                {nameSvg: "ic_round", title: "Branding", text: "Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat.", link: "#"},
+                {nameSvg: "mobile", title: "Mobile Apps", text: "Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat.", link: "#"},
+                {nameSvg: "cart", title: "E-commerce", text: "Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat.", link: "#"},
+                {nameSvg: "healthicons", title: "Human Resources", text: "Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat.", link: "#"},
+                {nameSvg: "fluent", title: "Learning Management", text: "Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat.", link: "#"},
+                {nameSvg: "services", title: "UI/UX Design", text: "Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat.", link: "#"},
+            ]
+            
+section.services
+    .container
+        .services__head
+            h2.services__headinng Our Specialization can help your problem
+        .services__list
+            each serv in servArray
+                .services__item
+                    .services__icon
+                        +icon(serv.nameSvg)
+                    h2.services__title
+                        =serv.title
+                    p.services__text
+                        =serv.text
+                    .services__more
+                        a(href=""+serv.link).services__more--link
+                            span Read More
+                            +icon("arrow")
