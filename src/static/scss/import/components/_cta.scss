@@ -1,0 +1,57 @@
+.cta{
+    padding: 50px 0;
+    margin-bottom: 50px;
+    &__wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__headinng{
+        font-weight: 800;
+        font-size: 3.125rem;
+        line-height: 5rem;
+        text-align: center;
+        max-width: 647px;
+    }
+    &__head{
+        &--top{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 36px;
+        }
+        &--bottom{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // max-width: 157px;
+        }
+        margin-bottom: 50px;
+    }
+    &__body{
+        display: flex;
+        align-items:center;
+        column-gap: 30px;
+    }
+    &__item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 237px;
+        border-right: 2px solid #FFFFFF;
+        border-left: 2px solid #FFFFFF;
+        &--top{
+            font-size: 1.75rem;
+            line-height: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            font-feature-settings: 'salt' on, 'liga' off;
+        }
+        &--bottom{
+            font-size: 1rem;
+            line-height: 1.625rem;
+            text-align: center;
+            font-feature-settings: 'salt' on, 'liga' off;
+        }
+    }
+}

@@ -1,5 +1,62 @@
-
+- 
+    let fColFirst = [
+        { logo: "SakaAgency",
+            mail: "halo@sakaagency.studio",
+            copyright: "Copyright © 2021 SakaAgency",
+            right: "All Right Reserver",
+            tel: "022-123-4567",
+            icon: {name: ["dfribblr", "ig", "yt"], link: ["#dfribblr", "#ig", "#yt"]},
+            title: ["Company", "Support", "Get In Touch"],
+            company: ["About Us", "Project", "Pricing", "Career", "Testimonial"],
+            support: ["FAQ", "Privacy Policy", "Term and Conditions"],
+            lastChild: {placeholder: "Your email address", icon: ["send"]}
+        }]
 footer.footer
-
-
+    .container
+        .footer__wrapper
+            each firItem in fColFirst
+                .footer__column
+                    h2.footer__heading
+                        a(href: "" class="footer__logo")
+                            =firItem.logo
+                    .footer__copytext
+                        p.footer__copyright
+                            =firItem.copyright + " " + firItem.right
+                    .footer__social
+                        .footer__social--box
+                            each nameItem, key in firItem.icon.name
+                                a(href=firItem.icon.link[key])
+                                    +icon(nameItem)
+                .footer__column
+                    h3
+                        =firItem.title[0]
+                    ul
+                        each companyItem in firItem.company
+                            li
+                                a(href="#")
+                                    =companyItem
+                        
+                .footer__column
+                    h3
+                        =firItem.title[1]
+                    ul
+                        each supportItem in firItem.support
+                            li
+                                a(href="#")
+                                    =supportItem
+                        li
+                            a(href=`mailto:${firItem.mail}`)
+                                =firItem.mail
+                        li
+                            a(href=`tel:${firItem.tel}`)
+                                =firItem.tel
+                .footer__column
+                    h3
+                        =firItem.title[2]
+                    ul
+                        li 
+                            label(class="footer__input--mail", for="mail")
+                                input(type="mail"  id="mail" placeholder=firItem.lastChild.placeholder)
+                                a.footer__input--icon
+                                    +icon(firItem.lastChild.icon)
 

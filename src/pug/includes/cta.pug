@@ -1,0 +1,17 @@
+-
+    let ctaArray = [{number: "100", text: "Happy Customer"},{number: "100", text: "Project Completed"},{number: "40", text: "Awards Won"}]
+.cta
+    .container
+        .cta__wrapper
+            .cta__head
+                .cta__head--top
+                    h2.cta__headinng Grow Your Business With SakaAgency
+                .cta__head--bottom
+                    a(class="modal__link cta__head--btn hero__jumbotron--btn" href="#contact-us" data-modal="#contactUs") Contact Us
+            .cta__body
+                each cta in ctaArray
+                    .cta__item
+                        .cta__item--top
+                            =cta.number + "+"
+                        .cta__item--bottom
+                            =cta.text

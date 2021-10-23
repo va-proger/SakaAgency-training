@@ -1,0 +1,95 @@
+.founder{
+    padding: 50px 0;
+    margin-bottom: 50px;
+    &__list{
+        display: flex;
+        column-gap: 25px;
+    }
+    &__column{
+        display: flex;
+        flex-direction: column;
+        
+        &:first-child{
+            text-align: right;
+           
+            .founder__item{
+               
+                &:first-child{
+                    margin-bottom: 25px;
+                    // margin-right: 25px;
+                    .founder__item--right{
+                        overflow: hidden;
+                        border-radius: 100px 0 0 0;
+                    }
+
+                }
+                &:last-child{
+                    margin-bottom: 25px;
+                    // margin-right: 25px;
+                    .founder__item--right{
+                        overflow: hidden;
+                        border-radius:  0 0 0 100px;
+                    }
+                    
+                }
+
+            }
+        }
+        &:last-child{
+            padding-top: 68px;
+            .founder__item{
+                flex-direction: row-reverse;
+                &:first-child{
+                    margin-bottom: 25px;
+                    // margin-left: 25px;
+                    .founder__item--right{
+                        overflow: hidden;
+                        border-radius: 0 100px 0 0;
+                    }
+                    
+                }
+                &:last-child{
+                    margin-bottom: 25px;
+                    // margin-left: 25px;
+                    .founder__item--right{
+                        overflow: hidden;
+                        border-radius:  0 0 100px 0;
+                    }
+                    
+                }
+            }
+            
+        }
+
+    }
+    &__item{
+        column-gap: 10px;
+        display: flex;
+        &--right{
+            flex-shrink: 0;
+            img{
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+            min-width: 282px;
+        }
+        h3{
+            font-weight: 500;
+            font-size: 1.125rem;
+            line-height: 1.6875rem;
+        }
+        p{
+            font-weight: 300;
+            font-size: 0.875rem;
+            line-height: 1.625rem;
+        }
+    }
+    &__headinng{
+        font-weight: 800;
+        font-size: 3.125rem;
+        line-height: 4.6875rem;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+}

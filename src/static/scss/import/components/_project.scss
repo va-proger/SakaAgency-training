@@ -1,0 +1,52 @@
+.project{
+    padding: 50px 0;
+    margin-bottom: 50px;
+    &__head{
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 50px;
+    }
+    padding: 50px 0;
+    &__list{
+        display: grid;
+        grid-template-columns:  1fr 1fr;
+        row-gap: 30px;
+        column-gap: 30px;
+    }
+    &__headinng{
+        font-weight: 800;
+        font-size: 3.125rem;
+        line-height: 4.375rem;
+        max-width: 428px;
+    }
+    &__more--link{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        
+        span{
+            font-size:  1.14rem;
+            line-height: 1.25rem;
+            font-feature-settings: 'salt' on, 'liga' off;
+            color: #A1C5E9;
+            margin-right: 20px;
+        }
+        svg{
+            height: 20px;
+            width: 20px;
+        }
+    }
+    &__item{
+        display: block;
+        max-height: 307px;
+        overflow: hidden;
+        border-radius: 10px;
+        // a{
+        img{
+            object-fit: cover;
+            width: 100%;
+        }
+        // }
+    }
+}

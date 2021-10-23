@@ -1,0 +1,46 @@
+- 
+    let arrayTestimonial = [{
+        img: "test-1.png",
+        text: "Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat. Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat. Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat. Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat.",
+        name: "Mr. Jackson",
+        rank: "CEO of ABD Group"
+
+    },{
+        img: "test-2.png",
+        text: "Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat. Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat. Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat. Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat.",
+        name: "Mr. Smit",
+        rank: "Coder of ABD Group"
+
+    },{
+        img: "test-3.png",
+        text: "Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat. Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat. Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat. Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam sem tellus erat.",
+        name: "Mr. Hua",
+        rank: "CEO of ABD Group"
+
+    }
+    ]
+
+.testimonial
+    .container
+        .testimonial__box 
+            .testimonial__box--left
+                h2.testimonial__headinng Our Customer Say
+                p.testimonial__headinng--sub Feedback from our happy customers helps us in reaching the top
+            .testimonial__box--right
+                .swiper.testimonial__swiper
+                    .swiper-wrapper.testimonial__swiper--wrapper
+                        each testimonial in arrayTestimonial
+                            .swiper-slide.testimonial__swiper--slide
+                                .testimonial__quotemark
+                                    +icon('mark')
+                                .testimonial__head
+                                    .testimonial__head--image
+                                        img(src=`img/${testimonial.img}`)
+                                    .testimonial__head--about
+                                        p.testimonial__naming
+                                            =testimonial.name
+                                        span.testimonial__rank
+                                            =testimonial.rank
+                                p.testimonial__text
+                                    =testimonial.text
+                    .swiper-pagination.testimonial__swiper--pagination
